@@ -6,7 +6,7 @@
  */
 
 const ResourceServer = require('@ainasoft/oidc-rs');
-const authenticateMiddleware = require('./lib/authenticate.middleware');
+const authenticateMiddleware = require('./lib');
 
 module.exports = {
   authenticateMiddleware,
