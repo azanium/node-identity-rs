@@ -5,7 +5,8 @@ Node Identity Resource Service Authentication Middleware for Express JS
 
  - [Node v7.6+](https://nodejs.org/en/download/current/)
  - [Yarn](https://yarnpkg.com/en/docs/install)
-
+ - [ARN](https://www.npmjs.com/package/node-arn)
+ 
 ## Install
 
 ```bash
@@ -19,8 +20,8 @@ const { authenticateMiddleware } = require('identity-rs');
 // add into ExpressJS
 authenticateMiddleware(resourceName, qualifier, options),
 ```
-resourceName is the name you use for your service
-qualifier is the access level for permissions, eg: read, write, * (read-write).
+* resourceName is the name you use for your service
+* qualifier is the access level for permissions, eg: read, write, * (read-write).
 
 ## Middleware options
 
