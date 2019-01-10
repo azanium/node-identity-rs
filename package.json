@@ -1,6 +1,6 @@
 {
   "name": "identity-rs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Identity Resource Server Authentication Middleware for Express JS",
   "main": "src/index.js",
   "author": "Suhendra Ahmad",
