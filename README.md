@@ -1,4 +1,4 @@
-# node-identity-rs
+# identity-rs
 Node Identity Resource Service Authentication Middleware for Express JS
 
 ## Requirements
