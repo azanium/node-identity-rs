@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@ainasoft/oidc-rs@^0.3.3":
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/@ainasoft/oidc-rs/-/oidc-rs-0.3.3.tgz#9f73dc0f3c3451225da0653def4289056b48092b"
-  integrity sha512-C8gzXJhFgaHsLRFHo9zpfROyRBqTjl7m5RK8hRYHs1cztCOsYWuQBQed5pmVXaua4aM7oz0MF9UunwLZkD4XUQ==
+"@ainasoft/oidc-rs@^0.3.4":
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/@ainasoft/oidc-rs/-/oidc-rs-0.3.4.tgz#14ff16f386dc778f46aed8a4e16409ea3facf555"
+  integrity sha512-DI7BoSLLuI+njsEVK4ppGrbHs8K1G9pRHn5gmp3y/8Bluhk+qQrKEbr63Jkizi2tMyYSdddjRYNHlr/AeUp6PA==
   dependencies:
     "@trust/jose" "^0.1.7"
     node-arn "^1.1.1"

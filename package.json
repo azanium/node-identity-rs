@@ -28,7 +28,7 @@
     "openid"
   ],
   "dependencies": {
-    "@ainasoft/oidc-rs": "^0.3.3",
+    "@ainasoft/oidc-rs": "^0.3.4",
     "jwks-rsa": "^1.3.0",
     "njwt": "^0.4.0",
     "node-arn": "^1.1.2",
