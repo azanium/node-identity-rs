@@ -15,10 +15,10 @@ $ yarn add identity-rs
 
 ## Usage
 ```javascript
-const { authenticateMiddleware } = require('identity-rs');
+const { authenticatePermissions } = require('identity-rs');
 
 // add into ExpressJS
-authenticateMiddleware(resourceName, qualifier, options),
+authenticatePermissions(resourceName, qualifier, options),
 ```
 * resourceName is the name you use for your service
 * qualifier is the access level for permissions, eg: read, write, * (read-write).
