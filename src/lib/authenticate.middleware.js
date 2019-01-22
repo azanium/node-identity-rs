@@ -5,13 +5,13 @@
  * Mon Jan 07 2019 10:54:47 GMT+0800 (Malaysia Time)
  */
 const ARN = require('node-arn');
-const ResourceServer = require('@ainasoft/oidc-rs');  // eslint-disable-line
+const ResourceServer = require('@ainasoft/oidc-rs'); // eslint-disable-line
 
 /**
  * Authenticate Middleware
  *
  */
-const authenticateMiddleware = (resourceName, qualifier, opts) => {
+const authenticatePermissions = (resourceName, qualifier, opts) => {
   const rs = new ResourceServer();
   const options = opts || {};
   if (!options.allow) {
@@ -36,7 +36,36 @@ const authenticateMiddleware = (resourceName, qualifier, opts) => {
   return rs.authenticate(options);
 };
 
+/*
+ * @param {Object} options
+ * @param {Object} options.allow
+ * @param {Array}  options.allow.issuers
+ * @param {Array}  options.allow.audience
+ * @param {Array}  options.allow.subjects
+ * @param {Object} options.deny
+ * @param {Array}  options.deny.issuers
+ * @param {Array}  options.deny.audience
+ * @param {Array}  options.deny.subjects
+ * @param {Array<string>} options.scope
+ */
+const authenticate = ({
+  providers,
+  defaults,
+  realm,
+  allow,
+  deny,
+  scope,
+  handleErrors,
+  tokenProperty,
+  claimsProperty
+}) => {
+  const rs = new ResourceServer({ providers, defaults });
+  return rs.authenticate({
+    realm, scope, allow, deny, handleErrors, tokenProperty, claimsProperty
+  });
+};
 
 module.exports = {
-  authenticateMiddleware
+  authenticatePermissions,
+  authenticate
 };

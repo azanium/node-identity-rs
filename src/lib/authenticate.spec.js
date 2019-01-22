@@ -7,7 +7,7 @@
 
 /* eslint-disable arrow-body-style */
 const ResourceServer = require('@ainasoft/oidc-rs');
-const authenticateMiddleware = require('./authenticate.middleware');
+const { authenticatePermissions, authenticate } = require('./authenticate.middleware');
 
 jest.mock('@ainasoft/oidc-rs');
 
@@ -23,29 +23,36 @@ describe('Middleware - authenticateMiddleware', () => {
   });
 
   test('should pass without options', () => {
-    authenticateMiddleware.authenticateMiddleware('oidc', 'read')(req, res, next);
+    authenticatePermissions('oidc', 'read')(req, res, next);
     expect(next).toBeCalledTimes(1);
   });
 
   test('should pass with allow options', () => {
-    authenticateMiddleware.authenticateMiddleware('oidc', 'read', { allow: { permissions: ['arn'] } })(req, res, next);
+    authenticatePermissions('oidc', 'read', { allow: { permissions: ['arn'] } })(req, res, next);
     expect(next).toBeCalledTimes(1);
   });
 
   test('should pass by overwriting exisiting allow permission options', () => {
-    authenticateMiddleware.authenticateMiddleware('oidc', 'read', { allow: { permissions: ['arn:permission:*:oidc/read'] } })(req, res, next);
+    authenticatePermissions('oidc', 'read', { allow: { permissions: ['arn:permission:*:oidc/read'] } })(req, res, next);
     expect(next).toBeCalledTimes(1);
   });
 
   test('should pass request', () => {
-    authenticateMiddleware.authenticateMiddleware('', '', {})(req, res, next);
+    authenticatePermissions('', '', {})(req, res, next);
     expect(next).toBeCalledTimes(1);
   });
 
   test('should pass request on development environment', () => {
     process.env.NODE_ENV = 'development';
     ResourceServer.prototype.authenticate = jest.fn().mockImplementation(() => (cReq, cRes, cb) => cb());
-    authenticateMiddleware.authenticateMiddleware('', '', { hello: 'hello' })(req, res, next);
+    authenticatePermissions('', '', { hello: 'hello' })(req, res, next);
+    expect(next).toBeCalledTimes(1);
+  });
+
+  test('should pass non perms authenticate', () => {
+    process.env.NODE_ENV = 'development';
+    ResourceServer.prototype.authenticate = jest.fn().mockImplementation(() => (cReq, cRes, cb) => cb());
+    authenticate('', '', { hello: 'hello' })(req, res, next);
     expect(next).toBeCalledTimes(1);
   });
 });
