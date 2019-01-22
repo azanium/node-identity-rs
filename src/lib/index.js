@@ -5,6 +5,8 @@
  * Mon Jan 07 2019 10:54:47 GMT+0800 (Malaysia Time)
  */
 
-const { authenticateMiddleware } = require('./authenticate.middleware');
+const { authenticate, authenticatePermissions } = require('./authenticate.middleware');
 
-module.exports = authenticateMiddleware;
+module.exports = {
+  authenticate, authenticatePermissions
+};
