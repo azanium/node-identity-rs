@@ -1,6 +1,10 @@
 {
   "name": "identity-rs",
+<<<<<<< HEAD
   "version": "1.0.8",
+=======
+  "version": "1.0.7",
+>>>>>>> affedc3ead032bf8448f831e71d3e580ac299365
   "description": "Identity Resource Server Authentication Middleware for Express JS",
   "main": "src/index.js",
   "author": "Suhendra Ahmad",
@@ -28,7 +32,7 @@
     "openid"
   ],
   "dependencies": {
-    "@ainasoft/oidc-rs": "^0.3.4",
+    "@ainasoft/oidc-rs": "^0.3.5",
     "jwks-rsa": "^1.3.0",
     "njwt": "^0.4.0",
     "node-arn": "^1.1.2",
@@ -37,9 +41,9 @@
   },
   "devDependencies": {
     "@types/jest": "^23.3.3",
+    "cross-env": "^5.2.0",
     "eslint": "^5.9.0",
     "eslint-config-astro": "^1.0.8",
-    "eslint-import-resolver-module-alias": "^0.1.0",
     "eslint-plugin-import": "^2.14.0",
     "husky": "^1.3.1",
     "jest": "^23.6.0",
